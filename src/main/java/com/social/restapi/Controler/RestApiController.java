@@ -23,6 +23,8 @@ public class RestApiController {
         return restApiServices.SendString();
     }
 
-    @RequestMapping(value = "/rr", method = RequestMethod.GET)
-    public void otpUserValidation(){}
+    @RequestMapping(value = "/login", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public String otpUserValidation(@RequestBody String r){
+        return restApiServices.loginJwt(r);
+    }
 }
